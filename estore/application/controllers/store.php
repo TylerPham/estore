@@ -121,8 +121,11 @@ class Store extends CI_Controller {
 // This is where my code starts :)
 
 	function login(){
-		$this->load->view("product/login.php");
+		$this->load->view("login.php");
 // 		$login = new Login();
+	}
+	function register(){
+		$this->load->view("register.php");
 	}
       
 
