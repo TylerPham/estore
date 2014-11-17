@@ -17,6 +17,10 @@ class Store extends CI_Controller {
 	    		    	
 	    	$this->load->library('upload', $config);
 	    	
+	    	//My code added under here
+	    	//$this->load->library('form_validation');
+	    	
+	    	
     }
 
     function index() {
@@ -24,6 +28,7 @@ class Store extends CI_Controller {
     		$products = $this->product_model->getAll();
     		$data['products']=$products;
     		$this->load->view('product/list.php',$data);
+
     }
     
     function newForm() {
@@ -120,16 +125,38 @@ class Store extends CI_Controller {
 	
 // This is where my code starts :)
 
-	function login(){
-		$this->load->view("login.php");
-// 		$login = new Login();
-	}
-	function register(){
-		$this->load->view("register.php");
-	}
-      
+// 	function login(){
+// 		$this->load->view("login.php");
+		
+// 		$this->load->library('form_validation');
+// 		$this->form_validation->set_rules('username','Username','required|min_length[5]|max_length[12]');
+// 		$this->form_validation->set_rules('password','Password','required');
 
-    
-    
+// 	}
+// 	public function register(){
+		
+// 		$username = $this->input->post('username');
+// 		echo 'echoing';
+// 		echo $username;
+// 		$this->load->helper('form');
+// 		$this->load->library('form_validation');		
+// 		$this->form_validation->set_rules('username','Username','required');
+// 		//|min_length[5]|max_length[12]
+// 		$this->form_validation->set_rules('password','Password','required');
+// 		//$this->form_validation->set_rules('conf_password','passwords do not match','required');
+		
+// 		if ($this->form_validation->run() == TRUE) {
+// 			echo "Validate success";
+// 		}
+// 		if ($this->form_validation->run() == FALSE) {
+// 			echo "Validate fail";
+// 		}
+		
+// 		$this->load->view("register.php");
+		
+		
+// 	}
+          
 }
+
 

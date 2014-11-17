@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "store";
+$route['default_controller'] = "login";
 $route['404_override'] = '';
 
 /* End of file routes.php */

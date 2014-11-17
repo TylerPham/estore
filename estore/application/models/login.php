@@ -1,5 +1,5 @@
-<?php
-class Login  {
-	public $user;
-	public $password;
-}
+// <?php
+// class Login  {
+// 	public $user;
+// 	public $password;
+// }
