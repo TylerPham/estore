@@ -117,9 +117,15 @@ class Store extends CI_Controller {
 		//Then we redirect to the index page again
 		redirect('store/index', 'refresh');
 	}
+	
+// This is where my code starts :)
+
+	function login(){
+		$this->load->view("product/login.php");
+// 		$login = new Login();
+	}
       
-   
-    
+
     
     
 }
