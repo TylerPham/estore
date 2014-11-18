@@ -1,6 +1,6 @@
 <?php
-class Product_model extends CI_Model {
-
+class Product_model extends CI_Model
+{
 	function getAll()
 	{  
 		$query = $this->db->get('products');
@@ -31,7 +31,5 @@ class Product_model extends CI_Model {
 				                                  'description' => $product->description,
 											      'price' => $product->price));
 	}
-	
-	
 }
 ?>
