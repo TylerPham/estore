@@ -8,6 +8,11 @@ class login extends CI_Controller{
 // 	}
 	function index(){
 		$this->load->view('login.php');
+// 		//load the session library
+// 		$this->load->driver('session');
+// 		//load the view/session.php
+// 		$this->load->view('session_input');
+		
 	}
 	
 	function login_form(){
@@ -25,8 +30,8 @@ class login extends CI_Controller{
 			if($login_info->login == 'admin' && $login_info->password == 'admin'){
 				redirect('store/admin_control');
 			}
-			$this->load->view('login_success.php');
-			//redirect('store/admin_control');
+			//$this->load->view('login_success.php');
+			redirect('customer_store/index');
 			
 		}
 		else{

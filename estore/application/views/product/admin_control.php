@@ -4,12 +4,7 @@
 
 <?php 	echo "<h2>" . anchor('store/finalize_orders','Display All Finalized Orders') . "</h2>";?>
 
+<?php echo "<h2>" . anchor("store/delete_customer_and_orders",'Wipe Database',"onClick='return confirm(\"Do you really want to delete all records?\");'") . "</h2>";?>
 
-<h2>Delete All Customers and Order Information</h2>
+<?php echo "<p>" . anchor('login','Logout') . "</p>";?>
 
-
-<?php
-echo form_open('store/delete_everything');
-echo form_submit('delete', 'Delete Everything');
-echo form_close();
-?>

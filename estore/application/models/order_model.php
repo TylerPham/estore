@@ -32,5 +32,10 @@ class Order_model extends CI_Model
 		$this->db->where('id', $order->id);
 		return $query->result('OrderItem');
 	}
+// 	function delete_all_orders()
+// 	{
+// 		return $this->db->delete('orders');
+// 		//$this->db->where('login !=', 'admin');
+// 	}
 }
 ?>

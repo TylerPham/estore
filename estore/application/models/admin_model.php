@@ -14,8 +14,14 @@ class Admin_model extends CI_Model
 
 	function database_wipe()
 	{
-		$tables = array('orders', 'order_items', 'customers');
-		return $this->db->delete($tables);
+
+		$this->db->empty_table('orders');
+		$this->db->empty_table('order_items');
+
+		/*This deletes every user that isn't the admin*/
+		$this->db->where('login !=', 'admin');
+		$this->db->delete('customers');
+
 	}
 }
 ?>

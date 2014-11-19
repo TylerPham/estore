@@ -125,12 +125,13 @@ class Store extends CI_Controller {
 		$this->load->view('product/admin_control.php');
 	}
 	
-	function delete_everything(){
+	function delete_customer_and_orders(){
 		$this->load->view('product/admin_control.php');
 		echo "Tables cleared";
 		
-// 		$this->load->model('product_model');
-// 		$this->product_model->delete($id);
+		$this->load->model('admin_model');
+		$this->admin_model->database_wipe();
+
 	}
 	function finalize_orders(){
 		$this->load->model('order_model');
