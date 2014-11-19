@@ -26,7 +26,8 @@ class Order_model extends CI_Model
 	function generate_receipt($order)
 	{
 		//Prints all the items in this order
-		$this->db->select(*);
+		// You dont need this by default it adds the star
+		//$this->db->select(*);
 		$this->db->from('order_items');
 		$this->db->where('id', $order->id);
 		return $query->result('OrderItem');
