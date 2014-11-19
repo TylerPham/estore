@@ -31,6 +31,7 @@ class Product_model extends CI_Model
 				                                  'description' => $product->description,
 											      'price' => $product->price));
 	}
+<<<<<<< HEAD
 // <<<<<<< HEAD
 	
 	function delete_all(){
@@ -41,5 +42,7 @@ class Product_model extends CI_Model
 	
 // =======
 // >>>>>>> c8d4c871450744d553795897e0644f8ecb0489ac
+=======
+>>>>>>> origin/master
 }
 ?>
