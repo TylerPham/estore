@@ -14,23 +14,27 @@ class Product_model extends CI_Model
 		return $query->row(0,'Product');
 	}
 	
-	function delete($id) {
-		return $this->db->delete("products",array('id' => $id ));
+	function delete($id)
+	{
+		return $this->db->delete("products",array('id' => $id));
 	}
 	
-	function insert($product) {
+	function insert($product)
+	{
 		return $this->db->insert("products", array('name' => $product->name,
 				                                  'description' => $product->description,
 											      'price' => $product->price,
 												  'photo_url' => $product->photo_url));
 	}
 	 
-	function update($product) {
+	function update($product)
+	{
 		$this->db->where('id', $product->id);
 		return $this->db->update("products", array('name' => $product->name,
 				                                  'description' => $product->description,
 											      'price' => $product->price));
 	}
+<<<<<<< HEAD
 
 	
 	function delete_all(){
@@ -38,5 +42,7 @@ class Product_model extends CI_Model
 		return $this->db->delete($tables);
 	}
 	
+=======
+>>>>>>> origin/master
 }
 ?>
