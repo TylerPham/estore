@@ -1,5 +1,6 @@
 <?php
-class Product  {
+class Product
+{
 	public $id;
 	public $name;
 	public $description;

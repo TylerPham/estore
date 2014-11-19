@@ -1,9 +1,9 @@
-<h2>Product Table</h2>
+<h2>To Be Purchased</h2>
 <?php 
-		echo "<p>" . anchor('store/newForm','Add New') . "</p>";
+		echo "<p>" . anchor('store/shopping_cart','Go to Shopping Cart') . "</p>";
  	  
 		echo "<table>";
-		echo "<tr><th>Name</th><th>Description</th><th>Price</th><th>Photo</th></tr>";
+		echo "<tr><th>Name</th><th>Description</th><th>Price</th><th>Photo</th><th>Amount</th></tr>";
 		
 		foreach ($products as $product) {
 			echo "<tr>";
@@ -20,5 +20,3 @@
 		}
 		echo "<table>";
 ?>	
-
-
