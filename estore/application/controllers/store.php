@@ -19,8 +19,6 @@ class Store extends CI_Controller {
 	    	
 	    	//My code added under here
 	    	//$this->load->library('form_validation');
-	    	
-	    	
     }
 
     function index() {
@@ -64,7 +62,6 @@ class Store extends CI_Controller {
 				$this->load->view('product/newForm.php',$data);
 				return;
 			}
-			
 			$this->load->view('product/newForm.php');
 		}	
 	}
@@ -122,6 +119,8 @@ class Store extends CI_Controller {
 		redirect('store/index', 'refresh');
 	}
 	
+	//This is where our code starts
+	
 	function admin_control(){
 		$this->load->view('product/admin_control.php');
 	}
@@ -130,11 +129,16 @@ class Store extends CI_Controller {
 		$this->load->view('product/admin_control.php');
 		echo "Tables cleared";
 		
-		$this->load->model('product_model');
-		$this->product_model->delete($id);
+// 		$this->load->model('product_model');
+// 		$this->product_model->delete($id);
+	}
+	function finalize_orders(){
+		$this->load->model('order_model');
+		$orders = $this->order_model->getAll();
+		$data['orders']=$orders;
+		
+		$this->load->view('product/finalized_orders.php', $data);
 	}
 	
           
 }
-
-
