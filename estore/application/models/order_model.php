@@ -1,36 +1,35 @@
 <?php
 class Order_model extends CI_Model
 {
+	function initializer($order)
+	{
+		// Set up the order_id and customer_id
+		return $this->db->insert("orders", array('customer_id' => $order->customer_id));
+	}
+
 	function getAll()
 	{  
+		// A list of all existing orders
 		$query = $this->db->get('orders');
 		return $query->result('Order');
-	}  
-	
-	function get($id)
-	{
-		$query = $this->db->get_where('orders',array('id' => $id));
-		
-		return $query->row(0,'Order');
-	}
-	
-	function delete($id) {
-		return $this->db->delete("orders",array('id' => $id ));
-	}
-	
-	function insert($order) {
-		return $this->db->insert("orders", array('customer_id' => $order->customer_id,
-				                                  'order_date' => $order->order_date,
-											      'order_time' => $order->order_time,
-												  'total' => $order->total,
-												  'creditcard_number' => $order->creditcard_number,
-												  'creditcard_month' => $order->creditcard_month,
-												  'creditcard_year' => $order->creditcard_year));
 	}
 	 
-	function update($order) {
+	function credit_info($order)
+	{
+		//Inserts credit card information
 		$this->db->where('id', $order->id);
-		return $this->db->update("orders", array('total' => $order->total));
+		return $this->db->insert("orders", array('creditcard_number' => $order->creditcard_number,
+												'creditcard_month' => $order->creditcard_month,
+												'creditcard_year' => $order->creditcard_year));
+	}
+
+	function generate_receipt($order)
+	{
+		//Prints all the items in this order
+		$this->db->select(*);
+		$this->db->from('order_items');
+		$this->db->where('id', $order->id);
+		return $query->result('OrderItem');
 	}
 }
 ?>

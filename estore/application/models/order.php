@@ -10,11 +10,3 @@ class Order
 	public $creditcard_month;
 	public $creditcard_year;
 }
-
-class OrderItem
-{
-	public $id;
-	public $order_id;
-	public $product_id;
-	public $quantity;
-}
