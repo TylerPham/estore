@@ -14,6 +14,7 @@ class Customer_model extends CI_Model
 		
 		if($query->num_rows() == 1)
 		{
+			//echo "Found user!";
 			return TRUE;
 		}
 

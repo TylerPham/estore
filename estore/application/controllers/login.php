@@ -7,7 +7,7 @@ class login extends CI_Controller{
 
 // 	}
 	function index(){
-		$this->load->view('login');
+		$this->load->view('login.php');
 	}
 	
 	function login_form(){
@@ -15,23 +15,23 @@ class login extends CI_Controller{
 		$this->form_validation->set_rules('username','Username', 'required|max_length[24]|alpha_numeric');
 		$this->form_validation->set_rules('password','Password','required|max_length[16]');
 		
-		$this->load->model('login_model');
+		$this->load->model('customer_model');
 		
-		$login_info = new loginInfo();	
-		$login_info->username = $this->input->get_post('username');
+		$login_info = new Customer();	
+		$login_info->login = $this->input->get_post('username');
 		$login_info->password = $this->input->get_post('password');
 		
-		if($this->form_validation->run() == TRUE && $this->login_model->user_exists($login_info) == TRUE){
-			if($login_info->username == 'admin' && $login_info->password == 'admin'){
+		if($this->form_validation->run() == TRUE && $this->customer_model->user_exists($login_info) == TRUE){
+			if($login_info->login == 'admin' && $login_info->password == 'admin'){
 				redirect('store/admin_control');
 			}
-			$this->load->view('login_success');
-			//redirect('store');
+			$this->load->view('login_success.php');
+			//redirect('store/admin_control');
+			
 		}
 		else{
-			//$this->load->view('login');
-			//$msg = 'Invalid Username or Password';
-			$this->load->view('login');
+			$this->load->view('login.php');
+			//redirect('store/admin_control');
 		}
 	}	
 	
@@ -53,23 +53,23 @@ class login extends CI_Controller{
 		
 		if($this->form_validation->run() == TRUE){
 			
-			$this->load->model('register_model');
+			$this->load->model('customer_model');
 				
-			$new_user = new newUser();
+			$new_user = new Customer();
 			
-			$new_user->username = $this->input->get_post('username');
+			$new_user->login = $this->input->get_post('username');
 			$new_user->password = $this->input->get_post('password');
 			$new_user->email = $this->input->get_post('email');
-			$new_user->firstname = $this->input->get_post('firstname');
-			$new_user->lastname = $this->input->get_post('lastname');
+			$new_user->first = $this->input->get_post('firstname');
+			$new_user->last = $this->input->get_post('lastname');
 							
-			$this->register_model->register_newuser($new_user);
+			$this->customer_model->register_newuser($new_user);
 			
-			
-			$this->load->view('register_success');
+	
+			$this->load->view('register_success.php');
 		}
 		else{
-			$this->load->view('register');
+			$this->load->view('register.php');
 		}
 		
 	}

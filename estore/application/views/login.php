@@ -2,10 +2,6 @@
 
 <?php 
 
-if(!empty($msg)){
-	echo msg;
-}
-
 echo form_open('login/login_form');
 
 echo form_label('Username');
