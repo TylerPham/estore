@@ -129,6 +129,9 @@ class Store extends CI_Controller {
 	function delete_everything(){
 		$this->load->view('product/admin_control.php');
 		echo "Tables cleared";
+		
+		$this->load->model('product_model');
+		$this->product_model->delete($id);
 	}
 	
           

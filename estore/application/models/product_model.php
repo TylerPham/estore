@@ -1,6 +1,6 @@
 <?php
-class Product_model extends CI_Model {
-
+class Product_model extends CI_Model
+{
 	function getAll()
 	{  
 		$query = $this->db->get('products');
@@ -31,7 +31,15 @@ class Product_model extends CI_Model {
 				                                  'description' => $product->description,
 											      'price' => $product->price));
 	}
+// <<<<<<< HEAD
+	
+	function delete_all(){
+		$tables = array('orders', 'order_items',);
+		return $this->db->delete($tables);
+	}
 	
 	
+// =======
+// >>>>>>> c8d4c871450744d553795897e0644f8ecb0489ac
 }
 ?>
