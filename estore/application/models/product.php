@@ -6,4 +6,7 @@ class Product
 	public $description;
 	public $price;
 	public $photo_url;	
+	
+	//Don't know about this yet
+	public $quantity;
 }

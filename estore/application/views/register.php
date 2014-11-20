@@ -1,4 +1,8 @@
 <h2>New User Registration</h2>
+<style>
+	input { display: block;}
+	
+</style>
 
 <?php
 	echo "<p>" . anchor('login/login_form','Back to login Page') . "</p>";

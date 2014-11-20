@@ -56,6 +56,8 @@ $autoload['packages'] = array();
 $autoload['libraries'] = array('database','session','email');
 
 
+
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files
@@ -119,3 +121,5 @@ $autoload['model'] = array('Product', 'Order', 'OrderItem', 'Customer');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
+
+

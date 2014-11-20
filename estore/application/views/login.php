@@ -1,4 +1,9 @@
 <h2>Welcome to the login screen</h2>
+<style>
+	input { display: block;}
+	
+</style>
+
 
 <?php 
 
