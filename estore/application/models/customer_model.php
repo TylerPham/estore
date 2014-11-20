@@ -35,9 +35,11 @@ class Customer_model extends CI_Model
 						'password' => $customer->password,
 						'email' => $customer->email));
 	}
-// 	function delete_all_customers(){
-// 		$this->db->where('login !=', 'admin');
-// 		$this->db->delete('customers');
-// 	}
+	
+	function get_id($username)
+	{
+		$query = $this->db->get_where('customers',array('login' => $username));
+		return $query->row(0,'Customer');
+	}
 }
 ?>

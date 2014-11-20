@@ -32,10 +32,17 @@ class Order_model extends CI_Model
 		$this->db->where('id', $order->id);
 		return $query->result('OrderItem');
 	}
-// 	function delete_all_orders()
-// 	{
-// 		return $this->db->delete('orders');
-// 		//$this->db->where('login !=', 'admin');
-// 	}
+
+	function insert_order($order){
+		return $this->db->insert("orders",
+				array(	'customer_id' => $order->customer_id,
+						'order_date' => $order->order_date,
+						'order_time' => $order->order_time,
+						'total' => $order->total,
+						'creditcard_number' => $order->creditcard_number,
+						'creditcard_month' => $order->creditcard_month,
+						'creditcard_year' => $order->credicard_year
+				));
+	}
 }
 ?>

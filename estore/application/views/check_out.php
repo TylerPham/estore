@@ -2,7 +2,7 @@
 
 <?php 
 
-echo form_open('login/login_form');
+echo form_open('customer_store/receipt');
 
 echo form_label('Credit Card Number');
 echo form_error('creditnumber');
