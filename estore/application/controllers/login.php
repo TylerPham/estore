@@ -31,6 +31,13 @@ class login extends CI_Controller{
 				redirect('store/admin_control');
 			}
 			//$this->load->view('login_success.php');
+			$this->session->set_userdata('login', $login_info);
+			
+			
+			$this->session->set_userdata('id',$this->customer_model->get_id($login_info->login)->id);
+				
+			
+				
 			redirect('customer_store/index');
 			
 		}

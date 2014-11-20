@@ -71,6 +71,13 @@ class customer_store extends CI_Controller
 		$this->load->view('shopping_cart.php');
     }
     
+<<<<<<< HEAD
+    function check_out(){
+ 		//Rules for validation here;
+
+ 		
+ 		
+=======
     function check_out()
     {
     	$this->load->helper('date');
@@ -110,6 +117,7 @@ class customer_store extends CI_Controller
 					$this->load->view('receipt.php');
 				}
 
+<<<<<<< HEAD
 				else
 				{
 					echo "Card Expired, please use a different card!";
@@ -123,6 +131,29 @@ class customer_store extends CI_Controller
 		{
 			$this->load->view('check_out.php');
 		}
+=======
+>>>>>>> origin/master
+    	$this->load->view('check_out.php');
+>>>>>>> origin/master
+    }
+    
+    function receipt(){
+    	$this->load->model('order_model');
+    	$this->load->helper('date');
+    	 
+    	//Insert the order into the orders db
+    	$new_order = new Order();
+    	$new_order->customer_id = $this->session->userdata('id');
+    	$new_order->order_date = unix_to_human(now());
+    	$new_order->order_time = gettimeofday();
+    	$new_order->total = $this->input->get_post($this->cart->total());
+    	$new_order->creditcard_number = $this->input->get_post('');
+    	$new_order->creditcard_month = $this->input->get_post('');
+    	$new_order->creditcard_year = $this->input->get_post('');
+    	 
+    	
+    	$this->order_model->insert_order();
+    	$this->load->view('receipt.php');
     }
 }
 	
