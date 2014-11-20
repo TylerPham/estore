@@ -75,14 +75,54 @@ class customer_store extends CI_Controller
     {
     	$this->load->helper('date');
 
-    	$now = now();
+		$month = date("m"); // 01 through 12
+    	$year = date("Y"); // 2011
+
+		$c_month= $this->input->post('expirymonth');
+		$c_year = $this->input->post('expiryyear');
 
     	$this->load->library('form_validation');
 		$this->form_validation->set_rules('creditnumber','Credit Card Number','required|exact_length[16]');
-		$this->form_validation->set_rules('expirymonth','Expiry Month','required|greaterthan[0]|lessthan[13]');
-		$this->form_validation->set_rules('expiryyear','Expiry Year','required|greaterthan[$now]');
+		$this->form_validation->set_rules('expirymonth','Expiry Month','required|is_natural_no_zero|less_than[13]');
+		$this->form_validation->set_rules('expiryyear','Expiry Year','required|is_natural_no_zero');
 
-    	$this->load->view('check_out.php');
+		if($this->form_validation->run() == TRUE)
+		{
+			if ($c_year == $year)
+			{
+				if ($c_month > $month)
+				{
+					$this->load->view('receipt.php');
+				}
+
+				else
+				{
+					echo "Card Expired, please use a different card!";
+					$this->load->view('check_out.php');
+					//Same year expired
+				}
+			}
+
+			else
+			{
+				if ($c_year > $year)
+				{
+					$this->load->view('receipt.php');
+				}
+
+				else
+				{
+					echo "Card Expired, please use a different card!";
+					$this->load->view('check_out.php');
+					//Expired
+				}
+			}
+		}
+
+		else
+		{
+			$this->load->view('check_out.php');
+		}
     }
 }
 	
