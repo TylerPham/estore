@@ -62,5 +62,10 @@ class customer_store extends CI_Controller{
 		//redirect('customer_store/index');
 		$this->load->view('shopping_cart.php');
     }
+    
+    function check_out(){
+ //Rules for validation here;
+    	$this->load->view('check_out.php');
+    }
 }
 	

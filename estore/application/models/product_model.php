@@ -33,16 +33,11 @@ class Product_model extends CI_Model
 		return $this->db->update("products", array('name' => $product->name,
 				                                  'description' => $product->description,
 											      'price' => $product->price));
-	}
-//<<<<<<< HEAD
-
-	
+	}	
 	function delete_all(){
 		$tables = array('orders', 'order_items',);
 		return $this->db->delete($tables);
 	}
 	
-//=======
-//>>>>>>> origin/master
 }
 ?>
