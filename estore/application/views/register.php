@@ -5,7 +5,7 @@
 </style>
 
 <?php
-	echo "<p>" . anchor('login/login_form','Back to login Page') . "</p>";
+	echo "<p>" . anchor('store/login_form','Back to login Page') . "</p>";
 
 	echo form_open('login/register_form');
 	
