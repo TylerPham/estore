@@ -33,9 +33,6 @@
 			echo "<td>" . form_input('quantity',set_value('quantity'),'required') . "</td>";
 			echo "<td>" . form_submit('submit', 'Add to cart') . "</td>";
 			
-		
-	
-			       
 					
 			echo "</tr>";
 			echo form_close();
