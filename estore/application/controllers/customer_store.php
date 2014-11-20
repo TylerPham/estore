@@ -71,13 +71,6 @@ class customer_store extends CI_Controller
 		$this->load->view('shopping_cart.php');
     }
     
-<<<<<<< HEAD
-    function check_out(){
- 		//Rules for validation here;
-
- 		
- 		
-=======
     function check_out()
     {
     	$this->load->helper('date');
@@ -89,7 +82,7 @@ class customer_store extends CI_Controller
 		$this->form_validation->set_rules('expirymonth','Expiry Month','required|greaterthan[0]|lessthan[13]');
 		$this->form_validation->set_rules('expiryyear','Expiry Year','required|greaterthan[$now]');
 
->>>>>>> origin/master
+
     	$this->load->view('check_out.php');
     }
     
