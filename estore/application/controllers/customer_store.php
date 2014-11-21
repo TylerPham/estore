@@ -110,7 +110,6 @@ class customer_store extends CI_Controller
 					$this->load->view('receipt.php');
 				}
 
-<<<<<<< HEAD
 				else
 				{
 					echo "Card Expired, please use a different card!";
@@ -120,18 +119,10 @@ class customer_store extends CI_Controller
 			}
 		}
 
-<<<<<<< HEAD
-
-=======
 		else
 		{
 			$this->load->view('check_out.php');
 		}
-=======
->>>>>>> origin/master
->>>>>>> origin/master
-    	$this->load->view('check_out.php');
->>>>>>> origin/master
     }
     
     function receipt(){

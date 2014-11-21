@@ -2,7 +2,6 @@
 
 <?php 
 
-
 echo form_open('customer_store/receipt');
 
 echo form_label('Credit Card Number');
