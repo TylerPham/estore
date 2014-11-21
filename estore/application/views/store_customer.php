@@ -1,12 +1,15 @@
 <h2>Available Products</h2>
 <?php 
 
-		echo $this->session->userdata('session_id')."<br />";
-		echo $this->session->userdata('id');
+		//echo $this->session->userdata('session_id')."<br />";
+		//echo $this->session->userdata('id');
+		//$user = $this->session->userdata('login');
+		//echo "howdy";
 		
 		
 		echo "<p>" . anchor('customer_store/lookat_cart','Go to Cart') . "</p>";
-		echo "<p>" . anchor('login','Logout') . "</p>";
+		
+		echo "<p>" . anchor('login/logout','Logout') . "</p>";
 		
 		
 		echo "<table>";

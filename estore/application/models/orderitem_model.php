@@ -23,6 +23,16 @@ class Orderitem_model extends CI_Model
 														'product_id' => $orderitem->product_id,
 														'quantity' => $orderitem->quantity));
 	}
+	
+	function add_all_items($order_id)
+	{
+		foreach($this->cart->contents() as $items){
+			$this->db->insert('order_items', array(
+					'order_id' => $order_id,
+					'product_id' => $items['id'],
+					'quantity' => $items['qty']));
+		}
+	}
 	 
 	function update_amount($orderitem)
 	{

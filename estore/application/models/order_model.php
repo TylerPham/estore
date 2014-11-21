@@ -6,7 +6,7 @@ class Order_model extends CI_Model
 		// Set up the order_id and customer_id
 		return $this->db->insert("orders", array('customer_id' => $order->customer_id));
 	}
-
+	
 	function getAll()
 	{  
 		// A list of all existing orders
@@ -34,15 +34,41 @@ class Order_model extends CI_Model
 	}
 
 	function insert_order($order){
-		return $this->db->insert("orders",
+		 $this->db->insert("orders",
 				array(	'customer_id' => $order->customer_id,
 						'order_date' => $order->order_date,
 						'order_time' => $order->order_time,
 						'total' => $order->total,
 						'creditcard_number' => $order->creditcard_number,
 						'creditcard_month' => $order->creditcard_month,
-						'creditcard_year' => $order->credicard_year
-				));
+						'creditcard_year' => $order->creditcard_year));
+	
 	}
+	
+
+	
+	function find_id(){
+// 		$this->db->where('customer_id',$order->customer_id);
+// 		$this->db->where('order_date',$order->order_date);
+// 		$this->db->where('order_time', $order->order_time);
+// 		$this->db->where('total', $order->total );
+// 		$this->db->where('creditcard_number', $order->creditcard_number );
+// 		$this->db->where('creditcard_month', $order->creditcard_month );
+// 		$this->db->where('creditcard_year', $order->creditcard_year );
+// 		$query = $this->db->get('orders');
+// 		$this->db->where('id', $row);
+// 		$query = $this->db->get(); 
+
+		// A list of all existing orders
+		//$query = $this->db->get('orders');
+		$this->db->select_max('id');
+		$query = $this->db->get('orders');
+		
+		
+		return $query->result('Order');
+	}
+	
+
+
 }
 ?>

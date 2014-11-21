@@ -15,6 +15,12 @@ class login extends CI_Controller{
 		
 	}
 	
+	function logout(){
+				$this->session->sess_destroy();
+				$this->load->view('login.php');
+		
+	}
+	
 	function login_form(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username','Username', 'required|max_length[24]|alpha_numeric');
@@ -35,6 +41,7 @@ class login extends CI_Controller{
 			
 			
 			$this->session->set_userdata('id',$this->customer_model->get_id($login_info->login)->id);
+			$this->session->set_userdata('user',$this->customer_model->get_id($login_info->login)->login);
 				
 			
 				
