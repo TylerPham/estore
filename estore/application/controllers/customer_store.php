@@ -141,14 +141,9 @@ class customer_store extends CI_Controller
 					
 						
 					$this->load->view('receipt.php'); /*This line needs to be here*/
-					$this->session->sess_destroy();
-						
+					$this->session->sess_destroy();				
 				}
-
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
+				
 				else
 				{
 					echo "Card Expired, please use a different card!";
@@ -162,12 +157,11 @@ class customer_store extends CI_Controller
 		{
 			$this->load->view('check_out.php');
 		}
-<<<<<<< HEAD
-=======
+
 		
 		//$this->load->view('check_out.php');
 
->>>>>>> origin/master
+
     }
     
 //     function receipt(){
