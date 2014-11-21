@@ -2,11 +2,7 @@
 
 <?php 
 
-<<<<<<< HEAD
-echo form_open('customer_store/receipt');
-=======
 echo form_open('customer_store/check_out');
->>>>>>> origin/master
 
 echo form_label('Credit Card Number');
 echo form_error('creditnumber');
