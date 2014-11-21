@@ -41,5 +41,12 @@ class Customer_model extends CI_Model
 		$query = $this->db->get_where('customers',array('login' => $username));
 		return $query->row(0,'Customer');
 	}
+
+	function get_email($id)
+	{
+		$query = $this->db->get_where('customers',array('id' => $id));
+		
+		return $query->row(0,'Customer');
+	}
 }
 ?>
