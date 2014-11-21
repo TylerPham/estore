@@ -140,6 +140,11 @@ class Store extends CI_Controller {
 		
 		$this->load->view('product/finalized_orders.php', $data);
 	}
+	function display_orders(){
+		$this->load->model('admin_model');
+		//echo "hello";
+		$this->admin_model->order_history();
+	}
 	
           
 }

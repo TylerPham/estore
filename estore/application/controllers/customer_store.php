@@ -107,10 +107,45 @@ class customer_store extends CI_Controller
 			{
 				if ($c_year > $year)
 				{
-					$this->load->view('receipt.php');
+					
+					$this->load->model('order_model');
+					$this->load->helper('date');
+					
+					//Insert the order into the orders db
+					$new_order = new Order();
+					//echo $this->cart->total()."<br>";
+					
+// 					echo $this->input->get_post('creditnumber'."<br>");
+// 					echo $this->input->get_post('expirymonth')."<br>";
+					//echo  mdate( "%h:%i", time());
+					
+					$new_order->customer_id = $this->session->userdata('id');
+					$new_order->order_date = mdate( "%Y-%m-%d", time());
+					$new_order->order_time = mdate( "%h:%i", time());
+					$new_order->total = $this->cart->total();
+					$new_order->creditcard_number = $this->input->get_post('creditnumber');
+					$new_order->creditcard_month = $this->input->get_post('expirymonth');
+					$new_order->creditcard_year = $this->input->get_post('expiryyear');
+
+					$this->order_model->insert_order($new_order);
+					//echo $this->order_model->get(483.56)->id;
+					//$this->order_model->find_id($new_order);
+					//echo $order_id;
+					
+					//print_r($this->cart->contents());
+					
+					$this->load->model('orderitem_model');
+					$this->orderitem_model->add_all_items($this->order_model->find_id()[0]->id);					
+// 					$new_order_item->product_id = $this->order_model->find_id()[0]->id;
+// 					$new_order_item->
+					
+						
+					$this->load->view('receipt.php'); /*This line needs to be here*/
+					$this->session->sess_destroy();
+						
 				}
 
-<<<<<<< HEAD
+
 				else
 				{
 					echo "Card Expired, please use a different card!";
@@ -120,37 +155,33 @@ class customer_store extends CI_Controller
 			}
 		}
 
-<<<<<<< HEAD
-
-=======
 		else
 		{
 			$this->load->view('check_out.php');
 		}
-=======
->>>>>>> origin/master
->>>>>>> origin/master
-    	$this->load->view('check_out.php');
->>>>>>> origin/master
+		
+		//$this->load->view('check_out.php');
+
     }
     
-    function receipt(){
-    	$this->load->model('order_model');
-    	$this->load->helper('date');
+//     function receipt(){
+    	
+//     	$this->load->model('order_model');
+//     	$this->load->helper('date');
     	 
-    	//Insert the order into the orders db
-    	$new_order = new Order();
-    	$new_order->customer_id = $this->session->userdata('id');
-    	$new_order->order_date = unix_to_human(now());
-    	$new_order->order_time = gettimeofday();
-    	$new_order->total = $this->input->get_post($this->cart->total());
-    	$new_order->creditcard_number = $this->input->get_post('');
-    	$new_order->creditcard_month = $this->input->get_post('');
-    	$new_order->creditcard_year = $this->input->get_post('');
+//     	//Insert the order into the orders db
+//     	$new_order = new Order();
+//     	$new_order->customer_id = $this->session->userdata('id');
+//     	$new_order->order_date = unix_to_human(now());
+//     	$new_order->order_time = gettimeofday();
+//     	$new_order->total = $this->cart->total();
+//     	$new_order->creditcard_number = $this->input->get_post('creditcard_number');
+//     	$new_order->creditcard_month = $this->input->get_post('creditcard_month');
+//     	$new_order->creditcard_year = $this->input->get_post('creditcard_year');
     	 
     	
-    	$this->order_model->insert_order();
-    	$this->load->view('receipt.php');
-    }
+//     	$this->order_model->insert_order($new_order);
+//     	$this->load->view('receipt.php');
+//     }
 }
 	
